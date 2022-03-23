@@ -1,0 +1,37 @@
+<!--including header-->
+<%- include('partials/header.ejs') %>
+<!--/including header-->
+
+  <body>
+    <h1> Skill Set </h1>
+
+      <a href = "/skills/new"> Add new Skill Set</a>
+      <table>
+          <tr>
+              <th> Skill Set</th>
+              <th> year</th>
+              <th> Delete </th>
+          </tr>
+
+        <% data.forEach(function(data, index) { %>
+          <tr>
+              <td> <%= data.skill %> </td>
+              <td> <%= data.years %> </td>
+              <td> <a href="/skills/delete?id=<%= index %>"> Delete </a></td>
+          </tr>
+          
+        <% }) %>
+
+      </table>
+
+    <form action="/skills" method="post">
+      <label for="skill">Skill Set</label>
+      <input type="text" name="skill" />
+      <label for="years">Year</label>
+      <input type="number" name="years" />
+      <button type="submit">Submit</button>
+    </form>
+
+ <!--including footer-->
+ <%- include('partials/footer.ejs') %>
+ <!--/including footer-->
